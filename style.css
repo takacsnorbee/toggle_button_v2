@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.glowing-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glowing-checkbox input {
+    position: relative;
+    width: 120px;
+    height: 40px;
+    appearance: none;
+    outline: none;
+    background: linear-gradient(0deg, #333, #000);
+    border-radius: 20px;
+    box-shadow: 0 0 0 4px #353535, 0 0 0 5px #3e3e3e, 
+        inset 0 0 10px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,0.5),  inset 0 0 15px rgba(0,0,0,0.2);
+}
+    
+.glowing-checkbox input:checked {
+    background: aqua;
+    box-shadow: 0 0 0 4px #353535, 0 0 0 5px #3e3e3e, 
+        inset 0 0 10px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,0.5),  inset 0 0 15px rgba(0,0,0,0.2);
+}
+
+.glowing-checkbox input::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    width: 80px;
+    height: 40px;
+    background: linear-gradient(0deg, #000, #6b6b6b);
+    transform: scale(0.98, 0.96);
+    box-shadow: 0 0 0 1px #232323;
+    transition: 0.5s;
+}
+
+.glowing-checkbox input:checked::before {
+    left: 40px;
+}
+
+.glowing-checkbox input::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 60px;
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background: linear-gradient(0deg, #6b6b6b, #000);
+    transition: 0.5s;
+}
+
+.glowing-checkbox input:checked::after {
+    left: 100px;
+    background: aqua;
+    box-shadow: 0 0 5px aqua, 0 0 15px aqua;
+}
+
